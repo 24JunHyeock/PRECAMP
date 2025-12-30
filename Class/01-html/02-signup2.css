@@ -1,0 +1,64 @@
+body{
+    width: 1920px;
+    height: 1080px;
+}
+#bod{
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+h2{
+    color: #076bf7;
+}
+#bg{
+    width: 670px;
+height: 960px;
+
+border-radius: 20px;
+box-sizing: border-box;
+border: 1px solid #AACDFF;
+display: flex;
+
+justify-content: center;
+align-items: center;
+box-shadow: #0068FF40;
+}
+#sinUp{
+    width: 470px;
+height: 817.99755859375px;
+border: 1px solid #AACDFF;
+box-sizing: border-box;
+
+}
+.gen{
+    display: flex;
+    justify-self: space-around;
+
+}
+button{
+    width: 470px;
+    height: 75px;
+    background-color: white;
+    border-color: #0068FF;
+    color: #0068FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 10px;
+}
+button div{
+    width: 70px;
+    height: 27px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px;
+}
+hr{
+    width: 470px;
+    height: 1px;
+}
