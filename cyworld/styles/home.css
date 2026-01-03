@@ -49,12 +49,18 @@ html, body{
 .wrapper__body{
     width: 100%;
     height: 270px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 
 }
-.body__titles{
+.video{
+    width: 100%;
+    height: 240px;
+    background-color: #C4C4C4;
+    margin-top: 15px;
+}
+/* .body__titles{
     display: flex;
     display: flex;
     flex-direction: row;
@@ -67,4 +73,4 @@ html, body{
     
     background-color: gray;
 
-}
+} */
