@@ -1,0 +1,113 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+html, body{
+    width: 100;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    width: 540px;
+    height: 960px;
+    border: 1px solid #AACDFF;
+    box-shadow: 7px 7px 39px #0066ff53;
+    border-radius: 20px;
+    
+}
+.wrapper__body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    
+}
+.header{
+    width: 380px;
+    height: 47px;
+    color: #0068FF;
+    font-size: 32px;
+    font-weight: 700;
+
+}
+.wrapper__items{
+    
+    width: 380px;
+    
+}
+.item__one{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.item__one input{
+    border-radius: 7px;
+    margin: 12px;
+    width: 380px;
+    height: 60px;
+}
+.item__two{
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.item__two input{
+     width: 100px;
+    height: 40px;
+}
+.item__tre{
+    float: right;
+    
+}
+.tre__one{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.select{
+
+    width: 380px;
+    height: 60px;
+}
+.select select{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    color: #797979;
+    text-align: left;
+}
+.gen{
+    
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+.gen__one{
+    margin-right: 20px;
+}
+.Line{
+    width: 380px;
+    height: 1px;
+    background-color: #E6E6E6;
+}
+.res{
+    height: 75px;
+    width: 380px;
+}
+.res button{
+    width: 100%;
+    height: 100%;
+}
