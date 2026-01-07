@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>D-Day</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+      #start-btn {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+      }
+      #d-day-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1.6rem;
+      }
+      .d-day-child-container {
+        text-align: center;
+        margin-right: 1rem;
+      }
+      .d-day-child-container span {
+        font-size: 1.3rem;
+      }
+      .target-selector {
+        margin-top: 0.5rem;
+      }
+    </style>
+    <script>
+      const output = () => {
+        console.log("함수를 실행했어요.");
+      };
+      const dateFormMaker = () => {
+        const inputYear = document.querySelector("#target-year-input").value;
+        const inputMonth = document.querySelector("#target-month-input").value;
+        const inputDate = document.querySelector("#target-date-input").value;
+        //console.log(inputYear, inputMonth, inputDate);
+        //const dateFormat = inputYear +"-"+inputMonth+"-"+inputDate;
+        const dateFormat = `${inputYear}-${inputMonth}-${inputDate}`;
+        return dateFormat;
+      };
+      const counterMake = () => {
+        const targetDateInput = dateFormMaker();
+        const nowDate = new Date();
+        const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);
+        const remaining = (targetDate - nowDate) / 1000;
+        const remainingDate = Math.floor(remaining / 3600 / 24);
+        const remainingHours = Math.floor(remaining / 3600) % 24;
+        const remainingMin = Math.floor(remaining / 60) % 60;
+        const remainingSec = Math.floor(remaining) % 60;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>D-Day</h1>
+    <div id="d-day-container">
+      <div class="d-day-child-container">
+        <span id="days">0</span>
+        <span>일</span>
+      </div>
+      <div class="d-day-child-container">
+        <span id="hours">0</span>
+        <span>시간</span>
+      </div>
+      <div class="d-day-child-container">
+        <span id="min">0</span>
+        <span>분</span>
+      </div>
+      <div class="d-day-child-container">
+        <span id="sec">0</span>
+        <span>초</span>
+      </div>
+    </div>
+    <div id="target-selector">
+      <input type="text" class="target-input" size="5" id="target-year-input" />
+      -
+      <input
+        type="text"
+        class="target-input"
+        size="5"
+        id="target-month-input"
+      />
+      -
+      <input type="text" class="target-input" size="5" id="target-date-input" />
+    </div>
+
+    <button onclick="counterMake()" id="start-btn">카운트다운 시작</button>
+  </body>
+</html>
