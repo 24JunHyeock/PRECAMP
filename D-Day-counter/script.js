@@ -27,12 +27,14 @@ const counterMake = () => {
     messageContainer.innerHTML = "<h3>타이머가 종료되었습니다.</h3>";
     messageContainer.style.display = "flex";
     container.style.display = "none";
+    setClearInterval();
     return;
   } else if (isNaN(remaining)) {
     //만약, 잘못된 날짜가 들어옸다면, 유효한 시간대가 아닙니다. 출력
     messageContainer.innerHTML = "<h3>유효한 시간대가 아닙니다.</h3>";
     messageContainer.style.display = "flex";
     container.style.display = "none";
+    setClearInterval();
     return;
   }
 
