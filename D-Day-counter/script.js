@@ -1,5 +1,7 @@
 const messageContainer = document.querySelector("#d-day-message");
 const container = document.querySelector("#d-day-container");
+const intervalIdArr = [];
+
 container.style.display = "none";
 messageContainer.innerHTML = "<h3>D-Day를 입력해 주세요.</h3>";
 const output = () => {
@@ -23,9 +25,15 @@ const counterMake = () => {
   //수도코드
   if (remaining <= 0) {
     messageContainer.innerHTML = "<h3>타이머가 종료되었습니다.</h3>";
+    messageContainer.style.display = "flex";
+    container.style.display = "none";
+    return;
   } else if (isNaN(remaining)) {
     //만약, 잘못된 날짜가 들어옸다면, 유효한 시간대가 아닙니다. 출력
     messageContainer.innerHTML = "<h3>유효한 시간대가 아닙니다.</h3>";
+    messageContainer.style.display = "flex";
+    container.style.display = "none";
+    return;
   }
 
   //   const remainingDate = Math.floor(remaining / 3600 / 24);
@@ -50,9 +58,41 @@ const counterMake = () => {
     min: document.querySelector("#min"),
     sec: document.querySelector("#sec"),
   };
+  const timeKeys = Object.keys(remainingObj);
+  const docKeys = Object.keys(documentObj);
+  const documentArr = ["days", "hours", "min", "sec"];
+  //   for (let i = 0; i < timeKeys.length; i = i + 1) {
+  //     documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]];
+  //   }
+  //   let i = 0;
+  //   for (let key in documentObj) {
+  //     documentObj[key].textContent = remainingObj[timeKeys[i]];
+  //     i++;
+  //   }
+  let i = 0;
+  for (let tag of documentArr) {
+    document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
+    i++;
+  }
+  //   documentObj.days.textContent = remainingObj.remainingDate;
+  //   documentObj.hours.textContent = remainingObj.remainingHours;
+  //   documentObj.min.textContent = remainingObj.remainingMin;
+  //   documentObj.sec.textContent = remainingObj.remainingSec;
+};
 
-  documentObj.days.textContent = remainingObj.remainingDate;
-  documentObj.hours.textContent = remainingObj.remainingHours;
-  documentObj.min.textContent = remainingObj.remainingMin;
-  documentObj.sec.textContent = remainingObj.remainingSec;
+const starter = () => {
+  container.style.display = "flex";
+  messageContainer.style.display = "none";
+  counterMake();
+
+  const setIntervalId = setInterval(counterMake, 1000);
+  intervalIdArr.push(setIntervalId);
+};
+const setClearInterval = () => {
+  container.style.display = "none";
+  messageContainer.innerHTML = "<h3>D-Day를 입력해 주세요.</h3>";
+  messageContainer.style.display = "flex";
+  for (let i = 0; i < intervalIdArr.length; i++) {
+    clearInterval(intervalIdArr[i]);
+  }
 };

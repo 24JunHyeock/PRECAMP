@@ -9,7 +9,7 @@ body {
 h1 {
   font-size: 3rem;
 }
-#start-btn {
+.btn {
   font-size: 1.3rem;
   margin-top: 0.5rem;
 }
