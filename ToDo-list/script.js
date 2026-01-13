@@ -6,7 +6,7 @@ const savedTodoList = JSON.parse(localStorage.getItem("saved-items"));
 const createTodo = (storageData) => {
   let todoContents = todoInput.value;
   if (storageData) {
-    todoContents = storageData.contains;
+    todoContents = storageData.content;
   }
   const newLi = document.createElement("Li");
   const newSpan = document.createElement("span");
@@ -18,8 +18,10 @@ const createTodo = (storageData) => {
 
   newLi.addEventListener("dblclick", () => {
     newLi.remove();
+    saveItemsFn();
   });
-  if (storageData.complete) {
+  //storageData && storageData.complete = storageData?.complete
+  if (storageData?.complete) {
     newLi.classList.add("complete");
   }
   newSpan.textContent = todoContents;
@@ -42,17 +44,20 @@ const deleteAll = () => {
   for (let x of liList) {
     x.remove();
   }
+  saveItemsFn();
 };
 const saveItemsFn = () => {
   const saveItems = [];
   for (let i = 0; i < todoList.children.length; i++) {
     const todoObj = {
-      contents: todoList.children[i].querySelector("span").textContent,
-      complete: todoList.children[i].classList.contains,
+      content: todoList.children[i].querySelector("span").textContent,
+      complete: todoList.children[i].classList.contains("complete"),
     };
     saveItems.push(todoObj);
   }
-  localStorage.setItem("saved-items", JSON.stringify(saveItems));
+  saveItems.length === 0
+    ? localStorage.removeItem("saved-items")
+    : localStorage.setItem("saved-items", JSON.stringify(saveItems));
 };
 
 if (savedTodoList) {
