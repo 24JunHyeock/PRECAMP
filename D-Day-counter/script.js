@@ -16,10 +16,9 @@ const dateFormMaker = () => {
   const dateFormat = `${inputYear}-${inputMonth}-${inputDate}`;
   return dateFormat;
 };
-const counterMake = () => {
-  const targetDateInput = dateFormMaker();
+const counterMake = (data) => {
   const nowDate = new Date();
-  const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0);
+  const targetDate = new Date(data).setHours(0, 0, 0, 0);
   const remaining = (targetDate - nowDate) / 1000;
   //만약, remaining이 0이라면, 타이머가 종료 되었습니다. 출력
   //수도코드
@@ -71,9 +70,18 @@ const counterMake = () => {
   //     documentObj[key].textContent = remainingObj[timeKeys[i]];
   //     i++;
   //   }
+
+  const format = (time) => {
+    if (time < 10) {
+      return "0" + time;
+    } else {
+      return time;
+    }
+  };
   let i = 0;
   for (let tag of documentArr) {
-    document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
+    const remainingTime = format(remainingObj[timeKeys[i]]);
+    document.getElementById(tag).textContent = remainingTime;
     i++;
   }
   //   documentObj.days.textContent = remainingObj.remainingDate;
@@ -83,11 +91,14 @@ const counterMake = () => {
 };
 
 const starter = () => {
+  const targetDateInput = dateFormMaker();
   container.style.display = "flex";
   messageContainer.style.display = "none";
-  counterMake();
-
-  const setIntervalId = setInterval(counterMake, 1000);
+  counterMake(targetDateInput);
+  setClearInterval();
+  const setIntervalId = setInterval(() => {
+    counterMake(targetDateInput);
+  }, 1000);
   intervalIdArr.push(setIntervalId);
 };
 const setClearInterval = () => {
