@@ -2,12 +2,21 @@
   box-sizing: border-box;
 }
 body {
-  background-color: azure;
+  background-image: url(./images/Clear.jpg);
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0px;
   min-height: 100vh;
+}
+h1 {
+  color: white;
+  text-shadow: 2px 2px gray;
+  opacity: 80%;
+}
+input {
+  opacity: 80%;
 }
 .todo-container {
   min-width: 100%;
@@ -46,7 +55,7 @@ li button {
   border-radius: 8px;
   cursor: pointer;
 }
-button:active {
+li button:active {
   border: 2px solid gray;
 }
 .delete-btn-wrapper {
@@ -57,4 +66,12 @@ button:active {
   background-color: antiquewhite;
   padding: 0.2rem 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px gray;
+}
+.delete-btn-wrapper button:active {
+  box-shadow: none;
+  margin-left: 3px;
+  margin-top: 3px;
 }
